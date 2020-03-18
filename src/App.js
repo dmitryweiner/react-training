@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MessagesList from "./components/MessagesList";
+import MessageForm from "./components/MessageForm";
 
 const apiUrl = "http://localhost:3001";
 
@@ -36,7 +37,6 @@ class App extends React.Component {
   sendMessage() {
     const http = new XMLHttpRequest();
     http.open("POST", apiUrl, true);
-    //http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.onreadystatechange = () => {
       if (http.readyState === 4 && http.status === 200) {
         this.updateMessages(http.responseText);
@@ -60,19 +60,13 @@ class App extends React.Component {
       return (
         <div className="App">
           <MessagesList messages={messages}/>
-          <form>
-            <input
-                value={nick}
-                type="text"
-                onChange={(event) => this.setState({nick: event.target.value})}/>
-            <br/>
-            <textarea
-                value={message}
-                onChange={(event) => this.setState({message: event.target.value})}>
-            </textarea>
-            <br/>
-            <input type="button" value="Send" onClick={this.sendMessage}/>
-          </form>
+          <MessageForm
+              nick={nick}
+              message={message}
+              onMessageChange={(event) => this.setState({message: event.target.value})}
+              onNickChange={(event) => this.setState({nick: event.target.value})}
+              sendMessage={this.sendMessage}
+          />
         </div>
         );
     }
