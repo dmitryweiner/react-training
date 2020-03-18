@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import MessagesList from "./components/MessagesList";
 import MessageForm from "./components/MessageForm";
+import axios from "axios";
 
 const apiUrl = "http://localhost:3001";
 
@@ -24,34 +25,13 @@ class App extends React.Component {
   }
 
   receiveMessages() {
-    const http = new XMLHttpRequest();
-    http.open("GET", apiUrl, true);
-    http.onreadystatechange = () => {
-      if (http.readyState === 4 && http.status === 200) {
-        this.updateMessages(http.responseText);
-      }
-    };
-    http.send();
+    axios.get(apiUrl).then((response) => this.setState({messages: response.data}));
   }
 
   sendMessage() {
-    const http = new XMLHttpRequest();
-    http.open("POST", apiUrl, true);
-    http.onreadystatechange = () => {
-      if (http.readyState === 4 && http.status === 200) {
-        this.updateMessages(http.responseText);
-      }
-    };
-    http.send(JSON.stringify({
-      message: this.state.message,
-      nick: this.state.nick
-    }));
+    axios.post(apiUrl, JSON.stringify({message: this.state.message, nick: this.state.nick}))
+        .then((response) => this.setState({messages: response.data}));
     this.setState({message: ""});
-  }
-
-  updateMessages(messagesAsText) {
-    const messages = JSON.parse(messagesAsText);
-    this.setState({ messages });
   }
 
   render() {
