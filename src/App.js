@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import MessagesList from "./components/MessagesList";
 
 const apiUrl = "http://localhost:3001";
 
@@ -58,13 +59,7 @@ class App extends React.Component {
 
       return (
         <div className="App">
-          <ul>
-            {messages.map((item, index) =>
-              <li key={index}>
-                <strong>{item.nick}:</strong> {item.message}
-              </li>
-            )}
-          </ul>
+          <MessagesList messages={messages}/>
           <form>
             <input
                 value={nick}
