@@ -1,17 +1,36 @@
 import React from "react";
+import { connect } from "react-redux";
+import {sendMessage} from "../store";
 
-export default function MessageForm(props) {
-    return <form>
-        <input
-            value={props.nick}
-            type="text"
-            onChange={props.onNickChange}/>
-        <br/>
-        <textarea
-            value={props.message}
-            onChange={props.onMessageChange}>
+class MessageForm extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: "",
+            nick: ""
+        };
+    }
+
+    sendMessage() {
+        this.props.dispatch(sendMessage({message: this.state.message, nick: this.state.nick}));
+        this.setState({message: ""});
+    }
+
+    render() {
+        return <form>
+            <input
+                value={this.state.nick}
+                type="text"
+                onChange={(event) => this.setState({nick: event.target.value})}/>
+            <br/>
+            <textarea
+                value={this.state.message}
+                onChange={(event) => this.setState({message: event.target.value})}>
             </textarea>
-        <br/>
-        <input type="button" value="Send" onClick={props.sendMessage}/>
-    </form>;
+            <br/>
+            <input type="button" value="Send" onClick={() => this.sendMessage()}/>
+        </form>;
+    }
 }
+
+export default connect()(MessageForm);
