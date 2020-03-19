@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "axios": "^0.19.2",
+    "cross-fetch": "^3.0.4",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5"
   }
