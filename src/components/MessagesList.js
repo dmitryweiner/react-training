@@ -3,17 +3,23 @@ import { connect } from "react-redux";
 
 function mapStateToProps(state) {
     const { messages } = state;
-    return { messages };
+    return {
+        messages,
+        messagesCount: messages.length
+    };
 }
 
 function MessagesList(props) {
-    return <ul>
+    return <div>
+        <ul>
         {props.messages.map((item, index) =>
             <li key={index}>
                 <strong>{item.nick}:</strong> {item.message}
             </li>
         )}
-    </ul>
+        </ul>
+        <span>Total messages: {props.messagesCount}</span>
+    </div>
 }
 
 export default connect(mapStateToProps)(MessagesList);
