@@ -17,7 +17,7 @@ function MessagesList(props) {
             <Message message={item} key={index} />
         )}
         </ul>
-        <span>Total messages: {props.messagesCount}</span>
+        <span data-testid="total-messages">Total messages: {props.messagesCount}</span>
     </div>
 }
 

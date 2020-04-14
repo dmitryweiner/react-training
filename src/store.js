@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import {createStore, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
 import fetch from "cross-fetch";
 
@@ -37,13 +37,15 @@ export function sendMessage(data) {
             .then((response) => dispatch(pushMessage(data)));
     }
 }
+
 // ------ /ACTIONS -------
 
 // ------ STORE -------
-const initialState = {
+export const initialState = {
     messages: []
 };
-export default createStore(function (state = initialState, action) {
+
+export const reducer = function (state = initialState, action) {
     switch (action.type) {
         case ADD_MESSAGE: {
             return {
@@ -61,4 +63,6 @@ export default createStore(function (state = initialState, action) {
             return state;
         }
     }
-}, applyMiddleware(thunkMiddleware));
+};
+
+export default createStore(reducer, applyMiddleware(thunkMiddleware));
