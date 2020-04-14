@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Message from "./Message";
 
 function mapStateToProps(state) {
     const { messages } = state;
@@ -13,9 +14,7 @@ function MessagesList(props) {
     return <div>
         <ul>
         {props.messages.map((item, index) =>
-            <li key={index}>
-                <strong>{item.nick}:</strong> {item.message}
-            </li>
+            <Message message={item} key={index} />
         )}
         </ul>
         <span>Total messages: {props.messagesCount}</span>
