@@ -28,6 +28,4 @@ test('MessageForm calls proper action', async () => {
 
     await wait(() => expect(nockScope.isDone()).toBe(true));
     expect(testStore.getState()).toEqual({messages:[message]});
-
-    //expect(testStore.)
 });
