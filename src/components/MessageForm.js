@@ -21,14 +21,20 @@ class MessageForm extends React.Component{
             <input
                 value={this.state.nick}
                 type="text"
+                aria-label="nick-input"
                 onChange={(event) => this.setState({nick: event.target.value})}/>
             <br/>
             <textarea
                 value={this.state.message}
+                aria-label="message-input"
                 onChange={(event) => this.setState({message: event.target.value})}>
             </textarea>
             <br/>
-            <input type="button" value="Send" onClick={() => this.sendMessage()}/>
+            <input
+                type="button"
+                value="Send"
+                aria-label="send-button"
+                onClick={() => this.sendMessage()}/>
         </form>;
     }
 }
