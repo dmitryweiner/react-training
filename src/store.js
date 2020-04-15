@@ -2,8 +2,8 @@ import {createStore, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
 import fetch from "cross-fetch";
 
-const UPDATE_MESSAGES = "updateMessages";
-const ADD_MESSAGE = "addMessage";
+export const UPDATE_MESSAGES = "updateMessages";
+export const ADD_MESSAGE = "addMessage";
 const apiUrl = "http://localhost:3001";
 
 // ------ ACTIONS -------
