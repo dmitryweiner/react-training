@@ -8,10 +8,20 @@ export default {
 };
 
 export const ShowList = () => {
-    const messages = [{
-        nick: "Nobody",
-        message: "Hello everybody!"
-    }];
+    const messages = [
+        {
+            nick: "Nobody",
+            message: "Hello everybody!"
+        },
+        {
+            nick: "Nobody",
+            message: "Hello everybody!"
+        },
+        {
+            nick: "Nobody",
+            message: "Hello everybody!"
+        }
+    ];
     const props = {
         messages,
         messagesCount: messages.length
