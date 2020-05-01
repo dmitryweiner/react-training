@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {sendMessage} from "../store";
 
-class MessageForm extends React.Component{
+export class MessageForm extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
