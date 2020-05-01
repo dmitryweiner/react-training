@@ -3,4 +3,8 @@ export interface IMessage {
     nick: string;
 }
 
-export interface IMessagesList extends Array<IMessage> {};
+export interface IMessagesList extends Array<IMessage> {}
+
+export interface IStoreState {
+    messages: IMessagesList;
+}
