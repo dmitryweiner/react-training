@@ -9,10 +9,11 @@ export default {
     decorators: [withKnobs]
 };
 
+const message = {
+    nick: text("Nickname", "Nobody"),
+    message: text("Message", "Hello everybody!")
+};
+
 export const ShowText = () => {
-    const message = {
-        nick: text("Nickname", "Nobody"),
-        message: text("Message", "Hello everybody!")
-    };
     return <Message message={message}/>;
 };
