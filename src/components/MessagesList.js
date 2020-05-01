@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     };
 }
 
-function MessagesList(props) {
+export function MessagesList(props) {
     return <div>
         <ul>
         {props.messages.map((item, index) =>
