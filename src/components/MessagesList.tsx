@@ -30,7 +30,7 @@ export const MessagesList: React.FC<MessagesListProps> = (props: MessagesListPro
     return <div>
         <List>
         {props.messages.map((item: IMessage, index: number) =>
-            <Message message={item} key={index} />
+            <Message message={item} key={index} backgroundColor="#F0F0F0"/>
         )}
         </List>
         <span data-testid="total-messages">Total messages: {props.messagesCount}</span>

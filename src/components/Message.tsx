@@ -7,6 +7,7 @@ import styled from '@emotion/styled'
 
 type MessageProps = {
     message: PropTypes.InferProps<IMessage>;
+    backgroundColor?: string;
 };
 
 /**
@@ -18,6 +19,7 @@ const Message: React.FC<MessageProps> = function (props: MessageProps) {
         border-radius: 4px;
         padding: 10px;
         margin: 5px;
+        background-color: ${props.backgroundColor ? props.backgroundColor : "white"}
     `;
 
     const nickStyle = css`
