@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Message from './Message';
 
 test('Component Message gets property message and displays it', () => {
@@ -7,7 +7,9 @@ test('Component Message gets property message and displays it', () => {
         message: "Hello!",
         nick: "Nick"
     };
-    const { container, getByText } = render(<Message message={message}/>);
-    expect(getByText(/Nick/i)).toBeInTheDocument();
-    expect(getByText(/Hello/i)).toBeInTheDocument();
+    const component = renderer.create(
+      <Message message={message}/>,
+    );
+    let componentSnapshot = component.toJSON();
+    expect(componentSnapshot).toMatchSnapshot();
 });

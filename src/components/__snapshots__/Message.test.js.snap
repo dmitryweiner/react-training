@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Message gets property message and displays it 1`] = `
+<ul
+  className="css-dnpncn-Message"
+  data-testid="message"
+>
+  <strong
+    className="css-sktysn-Message"
+  >
+    Nick
+    :
+  </strong>
+   
+  Hello!
+</ul>
+`;

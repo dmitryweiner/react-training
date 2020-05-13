@@ -27,7 +27,7 @@ const Message: React.FC<MessageProps> = function (props: MessageProps) {
     `;
 
     return <ul data-testid="message" css={messageStyle}>
-        <strong css={nickStyle}>
+        <strong css={nickStyle}>&npsp;
             {props.message.nick}:
         </strong>&nbsp;
         {props.message.message}
